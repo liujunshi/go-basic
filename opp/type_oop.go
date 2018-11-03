@@ -72,7 +72,7 @@ func ModifyArrayRefer() {
 	fmt.Println("ModifyArrayRefer", a, b)
 }
 
-//切片是引用类型，因为切片内部是指向了数组指针
+//切片是引用类型，因为切片内部是指向了数组指针。
 func ModifySliceValue() {
 	var a = []int{1, 2, 3}
 	var b = a
@@ -89,3 +89,4 @@ func SliceTest() {
 	y := append(s, 5)
 	fmt.Println("SliceTest: ", s, x, y)
 }
+
