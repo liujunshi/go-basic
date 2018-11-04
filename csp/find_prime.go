@@ -1,4 +1,4 @@
-package main
+package csp
 
 import "fmt"
 
@@ -9,6 +9,6 @@ import "fmt"
 //要找出 N 以内所有的素数
 
 
-func main(){
+func MainCsp(){
 	fmt.Println("hello SCP...")
 }

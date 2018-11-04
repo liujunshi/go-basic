@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	"go-basic/oop"
+	"go-basic/csp"
 )
 
 func init(){
 	fmt.Println("I am init...")
 }
 func main(){
-	fmt.Println("hello world")
+	fmt.Println("Hello world,I am Golang.")
 
-	fmt.Println("Hello Interface...")
-	oop.MainInteface()
-
+	//oop.MainInteface()
+	csp.MainGoroutine()
 
 }
