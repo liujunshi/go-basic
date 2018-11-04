@@ -1,10 +1,10 @@
-package main
+package oop
 
 import (
 	"fmt"
 )
 
-func main() {
+func MainType() {
 	fmt.Println("Hello OOP ,Object Oriented Programming...")
 	var a Integer = 1
 	if a.Less(2) {
@@ -51,6 +51,10 @@ func (x *Integer) Add(y Integer) {
 	*x += y
 }
 
+func (x Integer) PrintValue(){
+	fmt.Println(x)
+}
+
 //例如 Http.Header就是一个基于map的类型，用于map的所有功能，又增加了一系列方法。 Header map[string][]string
 
 //值语义和引用语义，GoLang中大多数都属于值语义，包括基本类型和复合类型（数组、结构体等）。
@@ -89,4 +93,3 @@ func SliceTest() {
 	y := append(s, 5)
 	fmt.Println("SliceTest: ", s, x, y)
 }
-

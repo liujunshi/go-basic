@@ -1,10 +1,10 @@
-package main
+package oop
 
 import (
 	"fmt"
 )
 
-func main() {
+func MainStruct() {
 	fmt.Println("hello struct_oop ...")
 	r1 := new(Rect)
 	r2 := &Rect{}
