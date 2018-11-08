@@ -12,6 +12,6 @@ func main(){
 	fmt.Println("Hello world,I am Golang.")
 
 	//oop.MainInteface()
-	csp.MainGoroutine()
-
+	//csp.MainGoroutine()
+	csp.MainCsp()
 }

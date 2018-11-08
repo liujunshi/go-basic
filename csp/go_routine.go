@@ -72,3 +72,4 @@ func CountChan(ch chan int) {
 //基本语法 var chanName chan ElementType
 //ch := make(chan int)
 //写入 ch <- value  读取 value := <-ch  会阻塞程序
+
