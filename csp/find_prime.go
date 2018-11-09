@@ -11,7 +11,7 @@ import (
 
 //要找出 N 以内所有的素数,单线程进行
 
-func MainCsp() {
+func MainCspPrime() {
 	fmt.Println("hello SCP...")
 	max := 100000
 	fmt.Println("初始化切片长度", max)
