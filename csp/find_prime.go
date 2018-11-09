@@ -7,28 +7,28 @@ import (
 
 /**
 不用通过共享内存来通信，而是通过通信来共享内存
- */
+*/
 
-//要找出 N 以内所有的素数
+//要找出 N 以内所有的素数,单线程进行
 
 func MainCsp() {
 	fmt.Println("hello SCP...")
-	max := 10
+	max := 100000
 	fmt.Println("初始化切片长度", max)
-	arr := []int{2}
-	for i := 3; i <= max; i++ {
+	var arr []int
+	for i := 2; i <= max; i++ {
 		arr = append(arr, i)
 	}
-	fmt.Println("arr ：", arr)
+	//fmt.Println("arr ：", arr)
 	start := time.Now().UnixNano() / 1e6
-	//count := selectFind(10)
-	count := easyFind(arr)
+	count := selectFind(arr)
+	//count := easyFind(arr)
 	end := time.Now().UnixNano() / 1e6
 	fmt.Println("耗时 ：", (end - start), "素数个数：", count)
 }
 
 func easyFind(arr []int) int {
-	count := 0
+	var res []int
 	for _, v := range arr {
 		p := true
 		for j := 2; j < v; j++ {
@@ -38,24 +38,42 @@ func easyFind(arr []int) int {
 			}
 		}
 		if p {
-			count ++
-			fmt.Println("is prime number : ", v, " 共计多少个：", count)
+			res = append(res, v)
 		}
-
 	}
-	return count
+	//fmt.Println("easyFind 素数共计：", count, res)
+	return len(res)
 }
 
 //筛选法去除2的倍数，在去除3的倍数，以此类推
 func selectFind(arr []int) int {
-	//for _, v := range arr {
-	//	//TODO
-	//}
+	var res []int
 
-	return len(arr)
-
+	i := 0
+	for {
+		//fmt.Println("循环次数 ：", i+1)
+		res = remove(arr, arr[i])
+		//fmt.Println("arr : ", arr, "长度 ：", len(arr))
+		//fmt.Println("res : ", res, "长度 ：", len(res))
+		if len(arr) == len(res) || len(res) == 1 {
+			break
+		}
+		arr = res
+		i++
+	}
+	//fmt.Println("selectFind返回素数：res : ", res, "共计 ：", len(res))
+	return len(res)
 }
 
-func stepFind(x int, numbers *[]int) {
-
+//排除数组中第一个元素的倍数
+func remove(arr []int, x int) []int {
+	//fmt.Println("ready remove : ", arr, "x : ", x)
+	var res []int
+	for i := 0; i < len(arr); i++ {
+		v := arr[i]
+		if v == x || v%x != 0 {
+			res = append(res, v)
+		}
+	}
+	return res
 }
